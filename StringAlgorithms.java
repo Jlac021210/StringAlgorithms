@@ -8,7 +8,7 @@ public class StringAlgorithms {
     public static String printCharacters(String word) {
       String newWord = "";
         for(int i=0;i<=word.length()-1;i++){
-        newWord+=word.substring(i,i+1)+"\n";
+            newWord+=word.substring(i,i+1)+"\n";
         }
         return newWord;
     }
@@ -22,7 +22,7 @@ public class StringAlgorithms {
     public static String reverseWord(String word) {
         String wordNew="";
         for(int i=word.length()-1;i>=0;i--){
-        wordNew+=word.substring(i,i+1);
+            wordNew+=word.substring(i,i+1);
         }
         return wordNew;
     }
@@ -46,9 +46,9 @@ public class StringAlgorithms {
               sentenceNew+=sentence.substring(i,i+1);
               }
          }else{
-         upper=sentence.substring(i,i+1);
-         upper=upper.toUpperCase();
-         sentenceNew+=upper;
+            upper=sentence.substring(i,i+1);
+            upper=upper.toUpperCase();
+            sentenceNew+=upper;
          }
          }
         return sentenceNew;
@@ -69,13 +69,13 @@ public class StringAlgorithms {
         halfWord2=halfWord2.toLowerCase();
         String halfWord2New = "";
         for(int i=halfWord2.length()-1;i>=0;i--){
-        halfWord2New+=halfWord2.substring(i,i+1);
+            halfWord2New+=halfWord2.substring(i,i+1);
         }
         if((word.length()%2)!=0){
-        halfWord2New=halfWord2New.substring(0,halfWord2New.length()-1);
+            halfWord2New=halfWord2New.substring(0,halfWord2New.length()-1);
         }
         if(halfWord1.equals(halfWord2New)){
-        return true;
+            return true;
         }
         return false;
         
@@ -89,7 +89,19 @@ public class StringAlgorithms {
      * character exists, return a space ' '.
      */
     public static char firstUniqueChar(String word) {
-        
+    String half1="";
+    String half2="";
+    String letter="";
+    for(int i=0; i<=word.length()-1;i++){
+       half1=word.substring(0,i);
+       half2=word.substring(i+1,word.length());
+       letter=word.substring(i,i+1);
+       if((half1.indexOf(letter)==-1)&&(half2.indexOf(letter)==-1)){
+           char myChar = letter.charAt(0);
+           return myChar;
+           }
+           
+    }
         
         return ' ';
     }
@@ -110,15 +122,12 @@ public class StringAlgorithms {
         System.out.println(reverseWord("hello"));
 
         System.out.println("\nTesting capitalizeString:");
-       
         System.out.println(capitalizeString("the quick brown fox"));
 
         System.out.println("\nTesting detectPalindrome:");
-        
         System.out.println(detectPalindrome("racecar"));
 
         System.out.println("\nTesting firstUniqueChar:");
-        // Example:
-        // System.out.println(firstUniqueChar("swiss"));
+        System.out.println(firstUniqueChar("swiss"));
     }
 }
