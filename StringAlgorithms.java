@@ -92,12 +92,13 @@ public class StringAlgorithms {
     String half1="";
     String half2="";
     String letter="";
+    char myChar;
     for(int i=0; i<=word.length()-1;i++){
        half1=word.substring(0,i);
        half2=word.substring(i+1,word.length());
        letter=word.substring(i,i+1);
        if((half1.indexOf(letter)==-1)&&(half2.indexOf(letter)==-1)){
-           char myChar = letter.charAt(0);
+           myChar = letter.charAt(0);
            return myChar;
            }
            
